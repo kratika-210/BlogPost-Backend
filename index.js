@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogpostRoutes = require('./routes/blogRoutes');
+const authRoutes = require("./routes/auth/authRoutes");
 // npm install cors
 const cors = require('cors');
 
@@ -11,7 +12,7 @@ const PASSWORD="kratika";
 const DB_NAME="merndb";
 const DB_URI=`mongodb+srv://${USERNAME}:${PASSWORD}@merncourse.7mtst.mongodb.net/${DB_NAME}?retryWrites=true&w=majority&appName=MernCourse`;
 
-const PORT = 3088;
+const PORT = 3099;
 
 // express app
 const app = express();
@@ -41,7 +42,7 @@ app.get('/', (req, res) => {
 
 // blog routes
 app.use('/blogs', blogpostRoutes);
-
+app.use("/auth", authRoutes);
 // 404 page
 app.use((req, res) => {
     res.status(404).send({ error: '404: Page not found' });
