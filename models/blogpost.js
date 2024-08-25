@@ -21,7 +21,7 @@ const blogpost = new Schema({
     }
 }, { timestamps: true });
 
-const blogPostCollectionName = 'blogposts';
+const blogPostCollectionName = 'blogsReact';
 const BlogPost = mongoose.model('BlogPost', blogpost, blogPostCollectionName);
 
 module.exports = BlogPost;
